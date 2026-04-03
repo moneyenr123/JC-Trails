@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JC Trails - Trail Type Filters</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <button class="menu-button" id="menu-button"><span class="material-icons">menu</span></button>
+    <h1 class="logo">JC Trails</h1>
+  </header>
+  <nav class="side-nav" id="side-nav">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+  <div id="map-container"></div>
+  <div class="search-container">
+      <input type="text" id="search-input" placeholder="Search locations...">
+      <select id="trail-type-filter">
+        <option value="trails">All Trails</option>
+        <option value="dirt bike trails">Dirt Bike Trails</option>
+        <option value="quad trails">Quad Trails</option>
+        <option value="snowmobile trails">Snowmobile Trails</option>
+      </select>
+      <select id="rating-filter">
+        <option value="0">All Ratings</option>
+        <option value="1">1+ Stars</option>
+        <option value="2">2+ Stars</option>
+        <option value="3">3+ Stars</option>
+        <option value="4">4+ Stars</option>
+        <option value="5">5 Stars</option>
+      </select>
+  </div>
+  <div class="list-container">
+    <gmp-place-search orientation="vertical" selectable>
+      <gmp-place-all-content></gmp-place-all-content>
+      <gmp-place-text-search-request></gmp-place-text-search-request>
+    </gmp-place-search>
+  </div>
+  <div id="details-container">
+    <gmp-place-details-compact orientation="horizontal">
+      <gmp-place-details-place-request></gmp-place-details-place-request>
+      <gmp-place-media></gmp-place-media>
+      <gmp-place-rating></gmp-place-rating>
+      <gmp-place-address></gmp-place-address>
+      <div slot="action-item" class="directions-button-container">
+        <button class="directions-button">Get Directions</button>
+      </div>
+    </gmp-place-details-compact>
+  </div>
+  <div id="message-display" class="message-display"></div>
+  <div id="near-you-popup" class="popup-container">
+      <div class="popup-content">
+          <p>Search for trails near your location?</p>
+          <div class="popup-buttons">
+              <button id="search-near-me-yes">Yes</button>
+              <button id="search-near-me-no">No</button>
+          </div>
+      </div>
+  </div>
+  <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+    key: "YOUR_API_KEY",
+    v: "weekly"
+  });</script>
+  <script src="script.js"></script>
+</body>
+</html>
