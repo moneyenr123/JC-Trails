@@ -79,8 +79,6 @@ async function init() {
         strokeWeight: 5
     });
 
-    findCurrentLocation();
-
     gMap.addListener('click', (e) => {
         hidePlaceDetailsPopup();
         if (sideNav.style.width === '250px') {
@@ -116,6 +114,8 @@ async function init() {
     searchNearMeNo.addEventListener('click', () => {
         nearYouPopup.style.display = 'none';
     });
+
+    findCurrentLocation();
 }
 
 function setUnitSystem() {
