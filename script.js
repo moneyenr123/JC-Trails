@@ -60,7 +60,7 @@ async function init() {
         zoom: 2,
         mapTypeControl: false,
         clickableIcons: false,
-        mapId: 'DEMO_MAP_ID',
+        mapId: '465e34f24ca592a99228bdb9',
         renderingType: 'VECTOR'
     };
 
